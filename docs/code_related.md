@@ -27,3 +27,7 @@ https://help.aliyun.com/zh/model-studio/getting-started/first-api-call-to-qwen
 Deepseek:
 
 https://www.deepseek.com
+
+
+LLM answers:
+https://docs.google.com/spreadsheets/d/1CZrY0dJX1OTozR15uYWYx89wuVhBUzMxFCB1qoSkKvY/edit?gid=0#gid=0

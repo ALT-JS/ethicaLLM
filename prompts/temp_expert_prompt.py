@@ -1,4 +1,4 @@
-system_prompt = """
+e_system_prompt = """
 You are an expert in ethical analysis. Given an ethical dilemma and an expert opinion, your task is to structure the expert's perspective into a detailed analytical framework.
 
 Input:
@@ -45,7 +45,7 @@ The allocation of credit in collaborative research is inherently complex and con
 Please keep each section very short.
 """
 
-user_prompt = """
+e_user_prompt = """
 Dilemma Description: 
 {}
 

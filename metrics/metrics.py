@@ -250,9 +250,8 @@ class Metrics:
 
     #This implementation gives suspicious results
     def soft_cosine(self, s1: str, s2: str):
-        return 0 # DISABLED FOR NOW AS IT TAKES TOO LONG
-        s1 = preprocess(s1)
-        s2 = preprocess(s2)
+        s1 = self._preprocess(s1)
+        s2 = self._preprocess(s2)
 
         documents = [s1, s2]
         dictionary = Dictionary(documents)
@@ -264,7 +263,7 @@ class Metrics:
         tfidf = TfidfModel(documents)
         sentence_1 = tfidf[s1]
         sentence_2 = tfidf[s2]
-        termsim_index = WordEmbeddingSimilarityIndex(word2vec)
+        termsim_index = WordEmbeddingSimilarityIndex(self.word2vec)
         termsim_matrix = SparseTermSimilarityMatrix(termsim_index, dictionary, tfidf)
         return termsim_matrix.inner_product(sentence_1, sentence_2, normalized=(True, True))
         

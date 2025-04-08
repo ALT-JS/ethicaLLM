@@ -170,22 +170,17 @@ class Metrics:
         return sentence_bleu([reference], hypothesis)
 
     def compute_meteor(self, reference: list, hypothesis: list) -> float:
-        #I THINK THIS IS INCORRECT
-        #THIS CAN BE CALCULATED WITH ONE CALCULATION IT SEEMS 
-        return meteor_score([[reference]], [hypothesis])
+        return meteor_score([reference.split(" ")], hypothesis.split(" "))
 
     def compute_rouge(self, reference: str, hypothesis: str) -> float:
-        #THIS RETURNS A DICTIONARY. NOT SURE HOW I WANT TO COMPARE YET
-        return 0
         rouge = Rouge()
         scores = rouge.get_scores(hypothesis, reference) 
         return scores[0]["rouge-1"] # Returns the first score for ROUGE-1, ROUGE-2, and ROUGE-L
 
     def compute_nist(self, reference: str, hypothesis: str) -> float:
-        return 0
         if reference == hypothesis:
             #to avoid a ZeroDivision Error
-            return float("inf")
+            return 1
         #print("this is reference " + reference)
         #print("this is hypothesis_text " + hypothesis)
         temp = sentence_nist([reference.split(" ")], hypothesis.split(" "))

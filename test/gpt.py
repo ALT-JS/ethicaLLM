@@ -3,7 +3,7 @@ import openai
 from tqdm import tqdm
 import os
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 def get_response(sentences):
     prompt = "1"

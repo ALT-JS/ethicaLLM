@@ -1,6 +1,6 @@
 # ethicaLLM
 
-Are LLMs complicated ethical dilemma analyzers?
+> Are LLMs complicated ethical dilemma analyzers?
 
 Project Code Repository for Advanced LLM Agents Team JJAZ.
 

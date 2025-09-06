@@ -1,24 +1,27 @@
 e_system_prompt = """
-You are an expert in ethical analysis. Given an ethical dilemma and an expert opinion, your task is to structure the expert's perspective into a detailed analytical framework.
+You are an expert in ethical analysis. Given an ethical dilemma and an expert opinion, your task is to structure the expert's perspective into the following categories listed before. Your responses should be comprehensive and deeply reasoned, expanding each section with multiple paragraphs, relevant examples, and nuanced arguments.
 
 Input:
-    - An ethical dilemma description
-    - An expert's opinion on the dilemma
+- An ethical dilemma description
+- An expert's opinion on the dilemma
+
 Output:
-Format the expert's opinion into the following structured sections. If any section is not covered in the expert’s response, leave it blank. Here is the following desired structure:
+Format the expert analysis into the following structured sections. Each section should have up to five detailed bullet points. It is important that you do NOT add any new information.
 
-1. Introduction
-2. Key Factors in Consideration
-3. Historical & Theoretical Perspectives
-4. Proposed Resolution Strategies
-5. Key Takeaways
+Sections:
+Key Factors in Consideration: Describe all relevant contextual, cultural, legal, and personal factors that influence decision-making mentioned by the expert.  Present these as a bullet-point list, with each bullet containing 2–3 sentences explaining the factor and its significance.
+Proposed Resolution Strategies: List all possible resolution strategies that are mentioned by the expert.
+Key Takeaways: Summarize the expert opinion’s main insights, emphasizing practical applications and lessons learned. Present these as a bullet-point list, with each bullet containing a full sentence highlighting an actionable or conceptual insight.
 
+Use numbers as the bullet points. The order does not matter.
+Do not use Markdown or bolding, output plain text only. Do not add new lines between bullet points.
 -------------------------------------------------------------------------------------------------------------------------------
-Ethical dilemma description:
+Example Ethical dilemma description:
 I joined a lab during graduate school and was assigned to a post-doc, who immediately had me working with him to synthesize a key compound for his project. We worked on the compound for a number of months with him directing the effort. However, I was pleased with my own contributions and was delighted to get positive feedback from him. Indeed, the overall experience I was having was very positive, making me work even harder on the project. That’s when things got interesting. Early one evening, when we felt we were very close to success, I decided to stay a bit longer in the lab and try out some hunches. As I systematically tried out each one and tested it to see if it was correct, I FINALLY GOT IT. I verified it over and over to make sure. And I was overjoyed. I wrote it up, and left the lab in the wee hours of the morning elated but exhausted. So I didn’t get to the lab until late the next morning, but I wasn’t concerned because I knew my senior partner would be gratified. What do I see, however, but him talking to the PI of the project and taking credit for my discovery of the previous evening. I walked over and was astonished to hear him saying to the PI, “I verified the compound this morning, so we’re on our way.” Apparently, he saw my lab notes of the evening before, duplicated my test that morning, and now was taking credit for it as his own! When I got him in private, I was very upset and told him that the last, crucial step in the experiment—the one I did the previous evening—was my idea and my work. He laughed in my face and said that I was only tinkering around with some obvious strategies and that sooner or later one of us would finalize it. In other words, he was entirely dismissing the importance of my work the night before and arguing that the outcome was inevitable no matter which one of us did it. So, he was claiming the work as largely his own because the project was his and he did most of the intellectual work. 
 How should a lab resolve this problem? In a situation like this, who should get credit and what should the decisional process be?
 
-Expert's opinion:
+-------------------------------------------------------------------------------------------------------------------------------
+Example Expert Opinion:
 We were surprised to discover that the literature on what Nicholas Rescher has called “credit allocation rules” in science is rather scant. This is in sharp contrast to the rather large literature on assigning authorship credit, and the scandalous literature on researchers appropriating ideas from one another and then claiming credit for them. Unfortunately, the investigator who is looking for some apriori blueprint or algorithm that spells out who should get credit for what discovery and how much credit will be hard pressed to find that template. But only a little reflection is needed to suggest why that omission exists.
 Consider some of the more obvious bases or justifications for allocating credit in scientific research: originality of the research project or experimental idea; ingenuity in developing the research design; persevering through the intellectual and physical rigors of gathering data and conducting analyses; developing critical, perhaps extremely novel experimental materials; providing critical, sometimes ingenious technical support; offering novel or even brilliant insights at any point along the research trajectory; assessing the value of a particular discovery within the overall research project, (e.g., did the discovery play a modest role, or was it momentous in realizing the project’s goal?); calculating the value of the discovery’s contribution to contemporary scientific knowledge (e.g., is that knowledge expanded, refuted, or better understood in light of the new discovery? Has the discovery enabled new and promising lines of research?); and, of course, deciding the value of the scientific discovery relative to its enhancing human flourishing. As such, it isn’t difficult to discern why no apriori schema is available for ascribing values to these factors because any research project is abundantly rich with contextual details like these that would inform and differentiate case-by-case deliberations about assigning credit.
 Moreover, the fact that the form of most research is highly collaborative makes for additional problems. If every member of a research team contributed “equally,” then, following Aristotle, we would treat equals as equal and give everyone equal credit. Similarly, if the project design was such that each individual’s work was equally constitutive of and essential to the end result—or each individual’s contribution was so tightly and essentially integrated with all the others’ that it would be impossible to isolate one from the other—then we would probably not hesitate to say that the credit must be shared equally.
@@ -29,20 +32,29 @@ In his famous paper, “The Matthew Effect in Science,” Robert Merton—whom S
 We cannot dismiss the idea that the post-doc might be suffering from a Matthew Effect or, better, a “Matthew Syndrome.” He understands himself as the authority figure here and perhaps simply assumes that he is entitled to all the credit for the research discovery. If so, then such narcissistic assumptions might need to be checked by something like the institutional procedures we are proposing here.
 Of course, there are practical challenges with all our suggestions: How likely are universities to establish a consultative process as described above? Will their faculties endorse, support, and participate in it? How likely is it that most graduate students would even argue the matter beyond the post-doc and take it to the lab’s PI (much less to a formal consultation committee)? Yet, to the extent research universities would establish and publicize such measures for resolving disputes among investigators, they might provide something of a remedy for investigators suffering from the “Matthew Syndrome.” Failing all these recommendations for resolving this dilemma, perhaps the only words of wisdom left for graduate students such as the one above are: Choose the post-doc(s) with whom you work carefully.
 
+-------------------------------------------------------------------------------------------------------------------------------
 Example Output:
 
-%Introduction:
-This dilemma reflects a conflict over credit allocation in scientific research, where differing perceptions of contribution can lead to disputes over recognition.
 %Key Factors in Consideration:
-Key factors include originality, effort, and the distinction between intellectual and technical contributions, all set within a collaborative research environment.
-%Historical & Theoretical Perspectives:
-Relevant concepts such as Rescher’s credit rules, Stigler’s Law, and Merton’s Matthew Effect illustrate longstanding challenges in attributing credit and highlight the complexity of these issues.
-%Proposed Resolution Strategies:
-One suggested approach is to engage an independent review by experienced scientists or an institutional ethics committee to assess contributions based on clear, context-specific criteria.
-%Key Takeaways:
-The allocation of credit in collaborative research is inherently complex and context-dependent, underlining the need for transparent consultative processes and careful selection of collaborators.
+1. Lack of universal credit allocation rules in science. The expert highlights that there is little formal literature on assigning scientific credit, unlike the more developed literature on authorship. This absence reflects the highly contextual nature of scientific work, where rigid rules are difficult to apply across diverse projects.
+2. Criteria influencing credit allocation. Multiple bases may be used when judging contributions: originality of the project, ingenuity in design, perseverance in execution, creation of novel materials, or offering key insights. Each of these carries different weight depending on the circumstances, making judgments about credit necessarily nuanced and case-specific.
+3. Collaborative and interdependent nature of research. Research often involves tasks ranging from routine to highly sophisticated, making it difficult to isolate or rank contributions. Even seemingly “menial” tasks, like preparing reagents or conducting repeated tests, can be essential for breakthroughs, blurring the line between ordinary labor and critical discovery.
+4. The post-doc’s and graduate student’s contrasting interpretations. The post-doc frames the graduate student’s actions as predictable and inevitable, emphasizing his own intellectual ownership of the project. In contrast, the graduate student views her late-night success as a breakthrough requiring recognition. These conflicting perspectives reflect the subjective nature of credit claims.
+5. Historical and sociological patterns of misattributed credit. Stigler’s Law and the Matthew Effect show how credit often flows to established or senior figures rather than true originators. The expert notes that authority figures, like the post-doc, may assume entitlement to recognition, reflecting broader systemic inequities in science.
 
-Please keep each section very short.
+%Proposed Resolution Strategies:
+1. Consultation with experienced scientists in the field. Forming an impartial panel of respected researchers who can weigh originality, novelty, and complexity of contributions, thereby making a fair decision.
+2. Involvement of institutional structures. Using research ethics ombudsmen or consultation groups, if available, to mediate disputes and assess contributions in light of ethical principles.
+3. Committee evaluation of specific claims. Having evaluators examine whether the graduate student’s experiment was genuinely novel or pre-planned, and how essential her input was to the project’s objective.
+4. Analysis of collaboration dynamics. Investigating whether the graduate student acted solely under the post-doc’s direction or contributed original insights that were decisive for success.
+5. Preventive caution for graduate students. In absence of robust institutional remedies, the expert suggests students carefully choose mentors and collaborators to avoid situations where their contributions may be minimized.
+
+%Key Takeaways:
+1. The complexity and interdependence of research make rigid rules for credit allocation unworkable; decisions must be contextual and case-specific.
+2. Authority figures often benefit disproportionately from established reputations (the Matthew Effect), which can distort fair recognition of contributions.
+3. Disputes about credit should ideally be resolved through structured, impartial consultation panels or ethics committees to ensure fairness.
+4. Careful analysis of the novelty, significance, and independence of a researcher’s contribution is essential for ethical credit assignment.
+5. Graduate students may need to exercise caution in choosing mentors, given the potential for power imbalances to influence how their work is recognized.
 """
 
 e_user_prompt = """
@@ -52,18 +64,15 @@ Dilemma Description:
 Expert Opinion:
 {}
 
-Output:
-
-%Introduction:
-[Text Here]
+Output Format:
 %Key Factors in Consideration:
-[Text Here]
-%Historical & Theoretical Perspectives:
-[Text Here]
+1. [Text Here]
+2...5 [More bullet points if applicable…] 
 %Proposed Resolution Strategies:
-[Text Here]
+1. [Text Here]
+2...5 [More bullet points if applicable…] 
 %Key Takeaways:
-[Text Here]
+1. [Text Here]
+2...5 [More bullet points if applicable…] 
 
-Please use paragraphs. Make sure the output is in utf-8 format. Add a “%” sign before each section.
 """
